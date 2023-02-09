@@ -1,0 +1,51 @@
+<h1>Formulario de registro</h1>
+<section class="container-sm">
+    <p [ngStyle]="{'background-image': 'linear-gradient(180deg, rgba(242,113,113,1) 33%, rgba(255,255,255,1) 100%)', 'height' :'50px'}" class="text-center" *ngIf="mensajeExito">Gracias por comunicarse con nosotros</p>
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" >
+            
+
+        <section class="form-group m-3">
+            <label for="nombres">Nombres:</label>
+            <input type="text"  class="form-control" required
+            [ngStyle]="{'border-color': nombres?.invalid && (nombres?.dirty || nombres?.touched) ? 'red': 'gray'}" 
+            formControlName="nombres">
+            
+        </section>
+        <section class="form-group m-3">
+            <label for="email">Email:</label>
+            <input  type="email"  class="form-control" required
+            [ngStyle]="{'border-color': email?.invalid && (email?.dirty || email?.touched) ? 'red': 'gray'}"
+            formControlName="email">
+        </section>
+
+        <section class="form-group m-3">
+            <label for="telefono">Telefono:</label>
+            <input type="number" class="form-control" required
+            [ngStyle]="{'border-color': telefono?.invalid && (telefono?.dirty || telefono?.touched) ? 'red': 'gray'}"
+            formControlName="telefono">
+
+        </section>
+
+        <section class="form-group m-3">
+            <label for="asunto">Asunto:</label>
+            <input type="text" class="form-control"  required
+            [ngStyle]="{'border-color': asunto?.invalid && (asunto?.dirty || asunto?.touched) ? 'red': 'gray'}"
+            formControlName="asunto">
+        </section>
+
+
+        <section class="form-group m-3">
+            <label for="mensaje">Mensaje:</label>
+            <input type="text" class="form-control" required
+            [ngStyle]="{'border-color': mensaje?.invalid && (mensaje?.dirty || mensaje?.touched) ? 'red': 'gray'}"
+            formControlName="mensaje">
+            
+        </section>
+        
+        <section class="form-group m-3">
+            <input type="submit" value="Enviar" class="btn btn-primary"  [disabled]="!btnactivar">
+            <input type="button" value="Refrescar" class="btn btn-success" (click)="Refrescar()" >
+            </section>
+        
+    </form>
+</section>
